@@ -36,6 +36,8 @@ class NicknameFullTextGambit implements GambitInterface
      */
     private function getUserSearchSubQuery($searchValue)
     {
+        $searchValue = $this->users->escapeLikeString($searchValue);
+
         return $this->users
             ->query()
             ->select('id')
